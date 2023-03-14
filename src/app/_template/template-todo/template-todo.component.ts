@@ -15,5 +15,7 @@ export class TemplateTodoComponent {
       position: 1
     }
   }
-
+  public changeCheck(event?: any): void {
+    this.todo$.status = !this.todo$.status;
+  }
 }

@@ -4,8 +4,8 @@
             <img src="./assets/svg/drag.svg">
         </div>
         <div class="todo-content-check">
-            <img src="./assets/svg/checkbox-empty.svg">
-            <img src="./assets/svg/checkbox-done.svg">
+            <img *ngIf="!todo$.status" (click)="changeCheck($event)" src="./assets/svg/checkbox-empty.svg">
+            <img *ngIf="todo$.status" (click)="changeCheck($event)" src="./assets/svg/checkbox-done.svg">
         </div>
         <div class="todo-content-title">
             <input type="text" placeholder="Name des ToDo-Punktes">
