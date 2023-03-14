@@ -1,14 +1,16 @@
 <bm-template-header></bm-template-header>
 <div class="list-view">
-    <h4>Offen <span>({{ $todos.length }})</span></h4>
-    <div class="todo-elements">
+    <h4 (click)="toDoShow=!toDoShow">Offen <span>({{ $todos.length }})</span></h4>
+    <div *ngIf="toDoShow" class="todo-elements">
         <bm-template-todo></bm-template-todo>
         <bm-template-todo></bm-template-todo>
         <bm-template-todo></bm-template-todo>
     </div>
     <bm-template-todo-form></bm-template-todo-form>
-    <h4>Erledigt <span>({{ $todos.length }})</span></h4>
-    <div class="todo-elements">
-        
+    <h4 (click)="toDoDoneShow=!toDoDoneShow">Erledigt <span>({{ $todos.length }})</span></h4>
+    <div *ngIf="toDoDoneShow" class="todo-elements">
+        <bm-template-todo></bm-template-todo>
+        <bm-template-todo></bm-template-todo>
+        <bm-template-todo></bm-template-todo>
     </div>
 </div>

@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./page-list.component.sass']
 })
 export class PageListComponent {
- $todos: string = '';
+  $todos: string = '';
+  public toDoDoneShow: boolean;
+  public toDoShow: boolean;
+  constructor()  {
+    this.toDoShow = true;
+    this.toDoDoneShow = false;
+  }
+
 }
