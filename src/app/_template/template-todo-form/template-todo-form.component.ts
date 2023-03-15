@@ -10,7 +10,12 @@ export class TemplateTodoFormComponent {
   public todo$: Todo; 
   
   public createToDo(event?: any): void {
-
+    this.todo$ = {
+      id: undefined,
+      label: undefined, 
+      status: false,
+      position: undefined
+    }
   }
 
   constructor() {
