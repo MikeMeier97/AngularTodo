@@ -18,4 +18,10 @@ export class TemplateTodoComponent {
   public changeCheck(event?: any): void {
     this.todo$.status = !this.todo$.status;
   }
+  public changeLabel(event?: any): void {
+    //TODO
+  }
+  public deletTodo(event?: any): void {
+    //TODO
+  }
 }
