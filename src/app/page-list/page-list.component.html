@@ -2,11 +2,11 @@
 <div class="list-view">
     <h4 (click)="toDoShow=!toDoShow">Offen <span>({{ $todos.length }})</span></h4>
     <div *ngIf="toDoShow" class="todo-elements">
-        <bm-template-todo></bm-template-todo>
+        <bm-template-todo (ping)="update($event)" [$todo]="toDo" *ngFor="let toDo of $todos"></bm-template-todo>
     </div>
-    <bm-template-todo-form></bm-template-todo-form>
-    <h4 (click)="toDoDoneShow=!toDoDoneShow">Erledigt <span>({{ $todos.length }})</span></h4>
+    <bm-template-todo-form (ping)="create($event)" *ngIf="toDoShow"></bm-template-todo-form>
+    <h4 (click)="toDoDoneShow=!toDoDoneShow">Erledigt <span>({{ $todosDone.length }})</span></h4>
     <div *ngIf="toDoDoneShow" class="todo-elements">
-        <bm-template-todo></bm-template-todo>
+        <bm-template-todo  (ping)="update($event)" [$todo]="toDo" *ngFor="let toDo of $todosDone"></bm-template-todo>
     </div>
 </div>

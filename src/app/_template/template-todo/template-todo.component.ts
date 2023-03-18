@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Eventping } from 'src/app/_interface/eventping';
 import { Todo } from 'src/app/_interface/todo';
 @Component({
   selector: 'bm-template-todo',
@@ -6,9 +7,10 @@ import { Todo } from 'src/app/_interface/todo';
   styleUrls: ['./template-todo.component.sass']
 })
 export class TemplateTodoComponent {
-  public todo$: Todo;
+  @Input() $todo: Todo;
+  @Output() ping: EventEmitter<any> = new EventEmitter<any>();
   constructor() {
-    this.todo$ = {
+    this.$todo = {
       id: 1, 
       label: 'Wasser Kaufen',
       status: false,
@@ -16,12 +18,25 @@ export class TemplateTodoComponent {
     }
   }
   public changeCheck(event?: any): void {
-    this.todo$.status = !this.todo$.status;
+    this.$todo.status = !this.$todo.status;
+    const eventObject: Eventping = {
+      label: 'check',
+      object: this.$todo
+    };
+    this.ping.emit(eventObject);
   }
   public changeLabel(event?: any): void {
-    //TODO
+    const eventObject: Eventping = {
+      label: 'label',
+      object: this.$todo
+    };
+    this.ping.emit(eventObject);
   }
   public deletTodo(event?: any): void {
-    //TODO
+    const eventObject: Eventping = {
+      label: 'delete',
+      object: this.$todo
+    };
+    this.ping.emit(eventObject);
   }
 }
